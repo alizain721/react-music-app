@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, notification } from 'antd';
 
 import '../stylesheets/App.css';
+import SearchBar from './SearchBar'
 
 class App extends React.Component {
 
@@ -13,7 +14,7 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        Hello world
+        <SearchBar> </ SearchBar>
       </div>
     );
   }
