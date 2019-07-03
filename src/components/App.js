@@ -1,6 +1,8 @@
 import React from 'react';
 import { Icon, notification } from 'antd';
 
+import '../stylesheets/App.css';
+
 class App extends React.Component {
 
   constructor(props) {
