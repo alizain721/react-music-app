@@ -25,6 +25,7 @@ class App extends React.Component {
       }
 
       if( this.state.search ) {
+        this.videoSearch( value );
       }
 
       setTimeout( () => {
@@ -52,6 +53,26 @@ class App extends React.Component {
     })
   }
 
+  videoSearch( term ) {
+    if( this.state.search ) {
+      YTSearch({ key: API_KEY, term }, (data) => {
+        try {
+          if( data && data.data && data.data.error.message ) {
+            console.log(data);
+            throw ('error')
+          }
+        this.setState({ videos: data, selectedVideo: data[0] });
+          console.log( this.state.videos );
+        } catch( err ){
+            notification['error']({
+              message: "Daily Limit Exceeded",
+              description: "Youtube data API daily limit have exceeded"
+            })
+          }
+         });
+      }
+  }
 }
+
 
 export default App;
