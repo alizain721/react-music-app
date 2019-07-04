@@ -4,6 +4,8 @@ import YTSearch from 'youtube-api-search';
 
 import '../stylesheets/App.css';
 import SearchBar from './SearchBar'
+import VideoList from './videos/VideoList';
+import VideoDetail from './videos/VideoDetail';
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY
 
 class App extends React.Component {
@@ -27,11 +29,21 @@ class App extends React.Component {
       }
   };
 
+  handleSelectedVideo = (index) => {
+    this.setState({ selectedVideo: this.state.videos[index], search: false })
+  }
 
   render() {
     return(
       <div>
-        <SearchBar> </ SearchBar>
+        <SearchBar videos={ this.state.videos } video={ this.state.selectedVideo } onChange={ this.handleChange } handleSearch={ this.handleSelectedVideo }/>
+        <div style={{ "display" : "flex" }}>
+          <VideoDetail video={ this.state.selectedVideo }/>
+          <VideoList
+              videos={ this.state.videos }
+              onVideoSelect={ ( userSelected ) => { this.setState({ selectedVideo: this.state.videos[ userSelected ] }) }}
+          />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,19 @@
+.empty-box {
+  width: 67.5%;
+  background: #999999;
+  color: #fff;
+  height: 85vh;
+  position: relative;
+}
+
+.youtube-icon-heading {
+  top: 50%;
+  left: 28%;
+  position: absolute;
+}
+
+.video-list-item {
+  border: 1px solid #efefef;
+  margin-bottom: 3px;
+  border-radius: 5px;
+}
