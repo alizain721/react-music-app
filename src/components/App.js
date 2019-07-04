@@ -17,6 +17,25 @@ class App extends React.Component {
     this.welcome();
   }
 
+  handleChange = (value) => {
+    setTimeout( () => {
+      if( value === ''){
+        this.setState({ videos: [], selectedVideo: null });
+        return;
+      }
+
+      if( this.state.search ) {
+      }
+
+      setTimeout( () => {
+        this.setState({ search: true });
+      }, 5000);
+
+    }, 2000);
+
+  };
+
+
   render() {
     return(
       <div>
