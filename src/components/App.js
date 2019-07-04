@@ -18,22 +18,13 @@ class App extends React.Component {
   }
 
   handleChange = (value) => {
-    setTimeout( () => {
       if( value === ''){
         this.setState({ videos: [], selectedVideo: null });
         return;
       }
-
-      if( this.state.search ) {
+      if( this.state.search && value.length > 16) {
         this.videoSearch( value );
       }
-
-      setTimeout( () => {
-        this.setState({ search: true });
-      }, 5000);
-
-    }, 2000);
-
   };
 
 
