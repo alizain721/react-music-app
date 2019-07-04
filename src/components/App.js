@@ -62,7 +62,7 @@ class App extends React.Component {
         try {
           if( data && data.data && data.data.error.message ) {
             console.log(data);
-            throw ('error')
+            throw new Error("error");
           }
         this.setState({ videos: data, selectedVideo: data[0] });
           console.log( this.state.videos );
